@@ -15,6 +15,7 @@ public class ShortestDist {
         this.equation2 = _equation2;
     }
 
+    //function to format flaot arrays into readable equations
     private String formatEquation(float[] _equation) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         int eqLen = _equation.length;
@@ -45,10 +46,11 @@ public class ShortestDist {
     }
 
     public void printBothEquations() {
-        System.out.println(formatEquation(equation1));
-        System.out.println(formatEquation(equation2));
+        System.out.println("y = " + formatEquation(equation1));
+        System.out.println("y = " + formatEquation(equation2));
     }
 
+    //function to get the distance between two lines
     private double calcLineDist(float[] _line1, float[] _line2) {
         //make sure both arrays are only of length 2
         float[] line1 = Arrays.copyOfRange(_line1, 0, 2);
@@ -67,5 +69,12 @@ public class ShortestDist {
     public void printCalcLineDist() {
         System.out.println("The distance between " + formatEquation(equation1) + " and "
         + formatEquation(equation2) + " is " + calcLineDist(equation1, equation2));
+    }
+
+    //function to calculate distance between a line and a curve
+    private double calcLineCurveDist(float[] _line, float[] curve) {
+
+
+        return 0;
     }
 }
