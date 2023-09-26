@@ -72,9 +72,15 @@ public class ShortestDist {
     }
 
     //function to calculate distance between a line and a curve
-    private double calcLineCurveDist(float[] _line, float[] curve) {
+    public double calcLineCurveDist(float[] _line, float[] _curve) {
+        //curve has to be a quadratic so far
+        float[] line = Arrays.copyOfRange(_line, 0, 2);
+        float[] curve = Arrays.copyOfRange(_curve, 0, 3);
 
+        float[] line1 = line;
+        // double[] line2 = {line[0], -(Math.pow(curve[1] - line[0], 2) / (4 * curve[0]) - curve[2])};
 
+        // double dist = calcLineDist(line1, line2);
         return 0;
     }
 }
