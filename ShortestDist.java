@@ -1,5 +1,7 @@
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
+//class to work out the shortest distance between two lines, a line and a curve or two quadratics
 public class ShortestDist {
     //calculate the shortest distance between binomials
     //format: y=(ce1)x(^pow)+(ce2)x(^pow-1)+...+(cen-1)x+(cen)
@@ -45,5 +47,25 @@ public class ShortestDist {
     public void printBothEquations() {
         System.out.println(formatEquation(equation1));
         System.out.println(formatEquation(equation2));
+    }
+
+    private double calcLineDist(float[] _line1, float[] _line2) {
+        //make sure both arrays are only of length 2
+        float[] line1 = Arrays.copyOfRange(_line1, 0, 2);
+        float[] line2 = Arrays.copyOfRange(_line2, 0, 2);
+
+        //calculate the shortest distance between 2 lines
+        if(line1[0] == line2[0]) {
+            final float grad = line1[0];
+            double dist = (Math.abs(line2[1] - line1[1])) / (Math.sqrt(1 + Math.pow(grad, 2)));
+            return dist;
+        }
+
+        return 0;
+    }
+
+    public void printCalcLineDist() {
+        System.out.println("The distance between " + formatEquation(equation1) + " and "
+        + formatEquation(equation2) + " is " + calcLineDist(equation1, equation2));
     }
 }
